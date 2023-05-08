@@ -9,6 +9,11 @@ module.exports = {
         header: '#292841',
         body: '#1C1829',
       },
+      screens: {
+        mobile: {
+          max: '768px',
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/line-clamp')],
