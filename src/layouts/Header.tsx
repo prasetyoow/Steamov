@@ -12,9 +12,11 @@ import Container from '../components/Container'
 import SearchResult from '../components/Search-result'
 
 const MENU_CLASS = `
-  p-1.5
+  px-1.5
+  py-1
   hover:bg-primary
   rounded-md
+  mobile:px-6
 `
 const MENU_CLASS_ACTIVE = `
   bg-primary
@@ -31,11 +33,14 @@ export default function Header() {
 
   const [keyword, setKeyword] = useState('')
   const [isSearchFocus, setIsSearchFocus] = useState(false)
+  const searchRef = useRef<HTMLInputElement>(null)
 
   const goToSearchPage = () => {
     if (keyword) {
+      defaultKeyword.current = keyword
       navigate(`/search?q=${keyword}`)
       setIsSearchFocus(false)
+      searchRef.current?.blur()
     }
   }
 
@@ -73,8 +78,8 @@ export default function Header() {
   }, [])
 
   return (
-    <div className="bg-header">
-      <Container className="flex items-center justify-between">
+    <div className="bg-header sticky top-0 z-[99]">
+      <Container className="flex items-center justify-between gap-3">
         {/* brand & menu */}
         <div className="flex items-center gap-6">
           {/* brand */}
@@ -82,7 +87,7 @@ export default function Header() {
             <Link to={'/'}>Streamu</Link>
           </h1>
           {/* menu */}
-          <div className="pt-1 flex item-center gap-1.5">
+          <div className="pt-1 flex item-center gap-1.5 mobile:fixed mobile:bottom-0 mobile:left-0 mobile:right-0 mobile:justify-center mobile:py-3 mobile:bg-header mobile:gap-6">
             <Link className={getMenuClass('/movies')} to={'/movies'}>
               Movies
             </Link>
