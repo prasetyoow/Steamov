@@ -10,12 +10,15 @@ interface Props {
 export default function SearchResult(props: Props) {
   const [items, setItems] = useState<Film[]>([])
 
+  const [totalItem, setTotalItem] = useState(6)
+
   const fetch = () => {
     const arrs: Film[] = []
 
     for (let i = 0; i < 6; i++) {
       arrs.push({
         id: i,
+        mediaType: 'tv',
         title: 'lorem',
         description: '',
         coverPath: '',
@@ -40,8 +43,10 @@ export default function SearchResult(props: Props) {
     left-0
     right-0
     rounded-md
-    overflow-hidden
+    overflow-auto
     bg-header
+    max-h-[480px]
+    shadow-lg
     "
     >
       {items.map((film, idx) => {
@@ -68,10 +73,10 @@ export default function SearchResult(props: Props) {
         )
       })}
 
-      {items.length > 5 ? (
+      {totalItem > 5 ? (
         <button
           onClick={() => props.goToSearchPage()}
-          className="px-3 py-1.5 bg-primary w-full hover:text-body"
+          className="px-3 py-1.5 bg-primary w-full hover:text-body sticky bottom-0 shadow-lg"
         >
           More results
         </button>
