@@ -10,7 +10,7 @@ export default function Image(props: Props) {
     <div
       className={mergeClassName('bg-primary h-full w-full', props.className)}
     >
-      <img src={props.src} className="w-full h-full" alt=""></img>
+      <img src={props.src} className="w-full h-full object-cover" alt=""></img>
     </div>
   )
 }
