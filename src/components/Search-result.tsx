@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Film } from '../interfaces'
-import Image from './Image'
+import { Image } from './Image'
 
 interface Props {
   keyword: string
   goToSearchPage: Function
 }
 
-export default function SearchResult(props: Props) {
+export const SearchResult = (props: Props) => {
   const [items, setItems] = useState<Film[]>([])
 
   const [totalItem, setTotalItem] = useState(6)

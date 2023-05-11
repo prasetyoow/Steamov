@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import { Film } from '../interfaces'
-import Image from './Image'
 import { MdPlayCircleOutline } from 'react-icons/md'
+import { Image } from './Image'
 
 interface Props {
   film: Film
 }
 
-export default function TrendingHero(props: Props) {
+export const TrendingHero = (props: Props) => {
   const navigate = useNavigate()
 
   return (

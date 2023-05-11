@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import Slider from '../components/slider/slider'
-import Section from '../components/section'
 import { Film } from '../interfaces'
-import TrendingHero from '../components/trending-hero'
-import Card from '../components/card'
+import { Card } from '../components/card'
+import { TrendingHero } from '../components/trending-hero'
+import { Section } from '../components/section'
 
-export default function Home() {
+export const Home = () => {
   const [trendings, setTrendings] = useState<Film[]>([])
   const [inTheaters, setInTheaters] = useState<Film[]>([])
 
@@ -58,7 +58,7 @@ export default function Home() {
           slidesToScroll={5}
         >
           {inTheaters.map((film, idx) => {
-            return <Card film={film} key={idx}></Card>
+            return <Card title={film.title} key={idx} imageSrc=""></Card>
           })}
         </Slider>
       </Section>

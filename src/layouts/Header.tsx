@@ -9,7 +9,7 @@ import {
 
 import { mergeClassName } from '../utils'
 import Container from '../components/Container'
-import SearchResult from '../components/Search-result'
+import { SearchResult } from '../components/Search-result'
 
 const MENU_CLASS = `
   px-1.5

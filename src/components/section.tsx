@@ -5,7 +5,7 @@ interface Props extends CustomComponentProps {
   title?: string
 }
 
-export default function Section(props: Props) {
+export const Section = (props: Props) => {
   return (
     <Container className={props.className}>
       {props.title ? (

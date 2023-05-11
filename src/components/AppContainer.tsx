@@ -1,18 +1,20 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import Header from '../layouts/Header'
-import Body from '../layouts/Body'
 import Footer from '../layouts/Footer'
+import { Body } from '../layouts/Body'
 
 export default function AppContainer() {
   return (
-    <BrowserRouter>
-      {/* Header */}
-      <Header />
-      {/* Body */}
-      <Body />
-      {/* Footer */}
-      <Footer />
-    </BrowserRouter>
+    <div className="pb-[72px]">
+      <BrowserRouter>
+        {/* Header */}
+        <Header />
+        {/* Body */}
+        <Body />
+        {/* Footer */}
+        <Footer />
+      </BrowserRouter>
+    </div>
   )
 }

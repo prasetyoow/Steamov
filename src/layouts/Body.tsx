@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
-import Home from '../pages/home'
-import Catalog from '../pages/catalog'
-import Film from '../pages/film'
+import { Home } from '../pages/home'
+import { Film } from '../pages/film'
+import { Catalog } from '../pages/catalog'
 
-export default function Body() {
+export const Body = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -11,8 +11,8 @@ export default function Body() {
       <Route path="/tv" element={<Catalog type="tv" />} />
       <Route path="/search" element={<Catalog type="search" />} />
 
-      <Route path="/movie:id" element={<Film mediaType="movie" />} />
-      <Route path="/tv:id" element={<Film mediaType="tv" />} />
+      <Route path="/movie/:id" element={<Film mediaType="movie" />} />
+      <Route path="/tv/:id" element={<Film mediaType="tv" />} />
     </Routes>
   )
 }
